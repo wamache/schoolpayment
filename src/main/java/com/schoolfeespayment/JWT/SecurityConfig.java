@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/parent/signup", "/parent/login", "/parent/forgotPassword", "/")
+                .antMatchers( "/parent/signup", "/parent/login", "/parent/forgotPassword", "/dependants", "/students", "/api/payment", "/api/payment_history","/mobile-money/**","/create_account")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
