@@ -31,9 +31,9 @@ mpesa:
 
 spring:
   datasource:
-    password: 4e5dc52ee640b2f7c42c98db3baaf9fa9b93d38aec2633ef2f034c9fe528f655
-    url: jdbc:postgresql://ec2-34-203-182-65.compute-1.amazonaws.com:5432/d8f3prg3reegbk
-    username: pdyjwbwmwzzduq
+    password: e93a8f87b48325e6461b24348953e55bc49ab4565de4ddc22b13c6a9186f30fa
+    url: jdbc:postgresql://ec2-44-205-112-253.compute-1.amazonaws.com:5432/dbgfa6p0v21evk
+    username: gpqwotiyewsbkb
   jpa:
     hibernate:
       ddl-auto: update #create-drop
