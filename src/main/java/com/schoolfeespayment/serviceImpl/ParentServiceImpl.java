@@ -55,7 +55,7 @@ public class ParentServiceImpl implements ParentService {
 
         try {
 
-            if(validateSignUpMap(requestMap)) {
+           // if(validateSignUpMap(requestMap)) {
                 Parent parent = parentDao.findByEmailId(requestMap.get("email"));
 
 
@@ -71,10 +71,10 @@ public class ParentServiceImpl implements ParentService {
 
 
 
-            }
-            else {
-                return ParentUtils.getResponseEntity(ParentConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
-            }
+//             }
+//             else {
+//                 return ParentUtils.getResponseEntity(ParentConstants.INVALID_DATA, HttpStatus.BAD_REQUEST);
+//             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -86,13 +86,13 @@ public class ParentServiceImpl implements ParentService {
 
 
 
-    private boolean validateSignUpMap(Map<String, String> requestMap) {
-        if(requestMap.containsKey("firstName") && requestMap.containsKey("lastName") && requestMap.containsKey("userName") && requestMap.containsKey("email") && requestMap.containsKey("idNumber") && requestMap.containsKey("password")
-                && requestMap.containsKey("contactNumber")) {
-            return true;
-        }
-        return false;
-    }
+//     private boolean validateSignUpMap(Map<String, String> requestMap) {
+//         if(requestMap.containsKey("firstName") && requestMap.containsKey("lastName") && requestMap.containsKey("userName") && requestMap.containsKey("email") && requestMap.containsKey("idNumber") && requestMap.containsKey("password")
+//                 && requestMap.containsKey("contactNumber")) {
+//             return true;
+//         }
+//         return false;
+//     }
 
 
     private Parent getParentFromMap(Map<String, String> requestMap) {
