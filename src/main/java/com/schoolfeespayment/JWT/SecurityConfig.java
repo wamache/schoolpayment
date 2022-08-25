@@ -42,12 +42,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected  void configure(HttpSecurity http) throws Exception {
-        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+        http.cors()
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers( "/parent/signup", "/parent/login", "/parent/forgotPassword", "/dependants", "/students", "/api/payment", "/api/payment_history","/mobile-money/**","/create_account")
-                .hasRole("parent").permitAll()
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and().exceptionHandling()
