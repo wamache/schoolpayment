@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers( "/parent/signup", "/parent/login", "/parent/forgotPassword", "/dependants", "/students", "/api/payment", "/api/payment_history","/mobile-money/**","/create_account")
+                .antMatchers( "/**") ///parent/signup", "/parent/login", "/parent/forgotPassword", "/dependants", "/students", "/api/payment", "/api/payment_history","/mobile-money/**","/create_account")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -57,6 +57,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
+    }
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
+        configuration.setExposedHeaders(Arrays.asList("custom-header1", "custom-header2"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource ();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 
 }
