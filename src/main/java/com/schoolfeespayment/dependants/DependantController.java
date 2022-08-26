@@ -35,7 +35,7 @@ public class DependantController {
     public String saveDependant(@ModelAttribute("dependant") Dependant dependant) {
 
         dependantService.saveDependant(dependant);
-        return "redirect:/dependants";
+        return "succesfully added";
 
     }
 
@@ -58,7 +58,7 @@ public class DependantController {
         existingDependant.setSchoolName (dependant.getSchoolName ());
 
         dependantService.updateDependant(existingDependant);
-        return "redirect:/dependants";
+        return "updated";
 
     }
 
